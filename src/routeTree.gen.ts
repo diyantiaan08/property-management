@@ -20,6 +20,20 @@ import { Route as PembayaranIdRouteImport } from './routes/pembayaran.$id'
 import { Route as KamarIdRouteImport } from './routes/kamar.$id'
 import { Route as BookingIdRouteImport } from './routes/booking.$id'
 import { Route as BookingBerhasilIdRouteImport } from './routes/booking-berhasil.$id'
+import { Route as AdminTipeKamarRouteImport } from './routes/admin.tipe-kamar'
+import { Route as AdminTamuRouteImport } from './routes/admin.tamu'
+import { Route as AdminPengaturanRouteImport } from './routes/admin.pengaturan'
+import { Route as AdminPembayaranRouteImport } from './routes/admin.pembayaran'
+import { Route as AdminLaporanKeuanganRouteImport } from './routes/admin.laporan-keuangan'
+import { Route as AdminLaporanBookingRouteImport } from './routes/admin.laporan-booking'
+import { Route as AdminKerusakanRouteImport } from './routes/admin.kerusakan'
+import { Route as AdminKamarRouteImport } from './routes/admin.kamar'
+import { Route as AdminKalenderRouteImport } from './routes/admin.kalender'
+import { Route as AdminDepositRouteImport } from './routes/admin.deposit'
+import { Route as AdminCheckOutRouteImport } from './routes/admin.check-out'
+import { Route as AdminCheckInRouteImport } from './routes/admin.check-in'
+import { Route as AdminBookingRouteImport } from './routes/admin.booking'
+import { Route as AdminBiayaRouteImport } from './routes/admin.biaya'
 
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
@@ -76,6 +90,76 @@ const BookingBerhasilIdRoute = BookingBerhasilIdRouteImport.update({
   path: '/booking-berhasil/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminTipeKamarRoute = AdminTipeKamarRouteImport.update({
+  id: '/tipe-kamar',
+  path: '/tipe-kamar',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminTamuRoute = AdminTamuRouteImport.update({
+  id: '/tamu',
+  path: '/tamu',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPengaturanRoute = AdminPengaturanRouteImport.update({
+  id: '/pengaturan',
+  path: '/pengaturan',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPembayaranRoute = AdminPembayaranRouteImport.update({
+  id: '/pembayaran',
+  path: '/pembayaran',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLaporanKeuanganRoute = AdminLaporanKeuanganRouteImport.update({
+  id: '/laporan-keuangan',
+  path: '/laporan-keuangan',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLaporanBookingRoute = AdminLaporanBookingRouteImport.update({
+  id: '/laporan-booking',
+  path: '/laporan-booking',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminKerusakanRoute = AdminKerusakanRouteImport.update({
+  id: '/kerusakan',
+  path: '/kerusakan',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminKamarRoute = AdminKamarRouteImport.update({
+  id: '/kamar',
+  path: '/kamar',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminKalenderRoute = AdminKalenderRouteImport.update({
+  id: '/kalender',
+  path: '/kalender',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminDepositRoute = AdminDepositRouteImport.update({
+  id: '/deposit',
+  path: '/deposit',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCheckOutRoute = AdminCheckOutRouteImport.update({
+  id: '/check-out',
+  path: '/check-out',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCheckInRoute = AdminCheckInRouteImport.update({
+  id: '/check-in',
+  path: '/check-in',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminBookingRoute = AdminBookingRouteImport.update({
+  id: '/booking',
+  path: '/booking',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminBiayaRoute = AdminBiayaRouteImport.update({
+  id: '/biaya',
+  path: '/biaya',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -83,6 +167,20 @@ export interface FileRoutesByFullPath {
   '/booking-saya': typeof BookingSayaRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/admin/biaya': typeof AdminBiayaRoute
+  '/admin/booking': typeof AdminBookingRoute
+  '/admin/check-in': typeof AdminCheckInRoute
+  '/admin/check-out': typeof AdminCheckOutRoute
+  '/admin/deposit': typeof AdminDepositRoute
+  '/admin/kalender': typeof AdminKalenderRoute
+  '/admin/kamar': typeof AdminKamarRoute
+  '/admin/kerusakan': typeof AdminKerusakanRoute
+  '/admin/laporan-booking': typeof AdminLaporanBookingRoute
+  '/admin/laporan-keuangan': typeof AdminLaporanKeuanganRoute
+  '/admin/pembayaran': typeof AdminPembayaranRoute
+  '/admin/pengaturan': typeof AdminPengaturanRoute
+  '/admin/tamu': typeof AdminTamuRoute
+  '/admin/tipe-kamar': typeof AdminTipeKamarRoute
   '/booking-berhasil/$id': typeof BookingBerhasilIdRoute
   '/booking/$id': typeof BookingIdRoute
   '/kamar/$id': typeof KamarIdRoute
@@ -95,6 +193,20 @@ export interface FileRoutesByTo {
   '/booking-saya': typeof BookingSayaRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/admin/biaya': typeof AdminBiayaRoute
+  '/admin/booking': typeof AdminBookingRoute
+  '/admin/check-in': typeof AdminCheckInRoute
+  '/admin/check-out': typeof AdminCheckOutRoute
+  '/admin/deposit': typeof AdminDepositRoute
+  '/admin/kalender': typeof AdminKalenderRoute
+  '/admin/kamar': typeof AdminKamarRoute
+  '/admin/kerusakan': typeof AdminKerusakanRoute
+  '/admin/laporan-booking': typeof AdminLaporanBookingRoute
+  '/admin/laporan-keuangan': typeof AdminLaporanKeuanganRoute
+  '/admin/pembayaran': typeof AdminPembayaranRoute
+  '/admin/pengaturan': typeof AdminPengaturanRoute
+  '/admin/tamu': typeof AdminTamuRoute
+  '/admin/tipe-kamar': typeof AdminTipeKamarRoute
   '/booking-berhasil/$id': typeof BookingBerhasilIdRoute
   '/booking/$id': typeof BookingIdRoute
   '/kamar/$id': typeof KamarIdRoute
@@ -109,6 +221,20 @@ export interface FileRoutesById {
   '/booking-saya': typeof BookingSayaRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/admin/biaya': typeof AdminBiayaRoute
+  '/admin/booking': typeof AdminBookingRoute
+  '/admin/check-in': typeof AdminCheckInRoute
+  '/admin/check-out': typeof AdminCheckOutRoute
+  '/admin/deposit': typeof AdminDepositRoute
+  '/admin/kalender': typeof AdminKalenderRoute
+  '/admin/kamar': typeof AdminKamarRoute
+  '/admin/kerusakan': typeof AdminKerusakanRoute
+  '/admin/laporan-booking': typeof AdminLaporanBookingRoute
+  '/admin/laporan-keuangan': typeof AdminLaporanKeuanganRoute
+  '/admin/pembayaran': typeof AdminPembayaranRoute
+  '/admin/pengaturan': typeof AdminPengaturanRoute
+  '/admin/tamu': typeof AdminTamuRoute
+  '/admin/tipe-kamar': typeof AdminTipeKamarRoute
   '/booking-berhasil/$id': typeof BookingBerhasilIdRoute
   '/booking/$id': typeof BookingIdRoute
   '/kamar/$id': typeof KamarIdRoute
@@ -124,6 +250,20 @@ export interface FileRouteTypes {
     | '/booking-saya'
     | '/login'
     | '/register'
+    | '/admin/biaya'
+    | '/admin/booking'
+    | '/admin/check-in'
+    | '/admin/check-out'
+    | '/admin/deposit'
+    | '/admin/kalender'
+    | '/admin/kamar'
+    | '/admin/kerusakan'
+    | '/admin/laporan-booking'
+    | '/admin/laporan-keuangan'
+    | '/admin/pembayaran'
+    | '/admin/pengaturan'
+    | '/admin/tamu'
+    | '/admin/tipe-kamar'
     | '/booking-berhasil/$id'
     | '/booking/$id'
     | '/kamar/$id'
@@ -136,6 +276,20 @@ export interface FileRouteTypes {
     | '/booking-saya'
     | '/login'
     | '/register'
+    | '/admin/biaya'
+    | '/admin/booking'
+    | '/admin/check-in'
+    | '/admin/check-out'
+    | '/admin/deposit'
+    | '/admin/kalender'
+    | '/admin/kamar'
+    | '/admin/kerusakan'
+    | '/admin/laporan-booking'
+    | '/admin/laporan-keuangan'
+    | '/admin/pembayaran'
+    | '/admin/pengaturan'
+    | '/admin/tamu'
+    | '/admin/tipe-kamar'
     | '/booking-berhasil/$id'
     | '/booking/$id'
     | '/kamar/$id'
@@ -149,6 +303,20 @@ export interface FileRouteTypes {
     | '/booking-saya'
     | '/login'
     | '/register'
+    | '/admin/biaya'
+    | '/admin/booking'
+    | '/admin/check-in'
+    | '/admin/check-out'
+    | '/admin/deposit'
+    | '/admin/kalender'
+    | '/admin/kamar'
+    | '/admin/kerusakan'
+    | '/admin/laporan-booking'
+    | '/admin/laporan-keuangan'
+    | '/admin/pembayaran'
+    | '/admin/pengaturan'
+    | '/admin/tamu'
+    | '/admin/tipe-kamar'
     | '/booking-berhasil/$id'
     | '/booking/$id'
     | '/kamar/$id'
@@ -249,14 +417,140 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookingBerhasilIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/tipe-kamar': {
+      id: '/admin/tipe-kamar'
+      path: '/tipe-kamar'
+      fullPath: '/admin/tipe-kamar'
+      preLoaderRoute: typeof AdminTipeKamarRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/tamu': {
+      id: '/admin/tamu'
+      path: '/tamu'
+      fullPath: '/admin/tamu'
+      preLoaderRoute: typeof AdminTamuRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/pengaturan': {
+      id: '/admin/pengaturan'
+      path: '/pengaturan'
+      fullPath: '/admin/pengaturan'
+      preLoaderRoute: typeof AdminPengaturanRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/pembayaran': {
+      id: '/admin/pembayaran'
+      path: '/pembayaran'
+      fullPath: '/admin/pembayaran'
+      preLoaderRoute: typeof AdminPembayaranRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/laporan-keuangan': {
+      id: '/admin/laporan-keuangan'
+      path: '/laporan-keuangan'
+      fullPath: '/admin/laporan-keuangan'
+      preLoaderRoute: typeof AdminLaporanKeuanganRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/laporan-booking': {
+      id: '/admin/laporan-booking'
+      path: '/laporan-booking'
+      fullPath: '/admin/laporan-booking'
+      preLoaderRoute: typeof AdminLaporanBookingRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/kerusakan': {
+      id: '/admin/kerusakan'
+      path: '/kerusakan'
+      fullPath: '/admin/kerusakan'
+      preLoaderRoute: typeof AdminKerusakanRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/kamar': {
+      id: '/admin/kamar'
+      path: '/kamar'
+      fullPath: '/admin/kamar'
+      preLoaderRoute: typeof AdminKamarRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/kalender': {
+      id: '/admin/kalender'
+      path: '/kalender'
+      fullPath: '/admin/kalender'
+      preLoaderRoute: typeof AdminKalenderRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/deposit': {
+      id: '/admin/deposit'
+      path: '/deposit'
+      fullPath: '/admin/deposit'
+      preLoaderRoute: typeof AdminDepositRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/check-out': {
+      id: '/admin/check-out'
+      path: '/check-out'
+      fullPath: '/admin/check-out'
+      preLoaderRoute: typeof AdminCheckOutRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/check-in': {
+      id: '/admin/check-in'
+      path: '/check-in'
+      fullPath: '/admin/check-in'
+      preLoaderRoute: typeof AdminCheckInRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/booking': {
+      id: '/admin/booking'
+      path: '/booking'
+      fullPath: '/admin/booking'
+      preLoaderRoute: typeof AdminBookingRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/biaya': {
+      id: '/admin/biaya'
+      path: '/biaya'
+      fullPath: '/admin/biaya'
+      preLoaderRoute: typeof AdminBiayaRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
 interface AdminRouteChildren {
+  AdminBiayaRoute: typeof AdminBiayaRoute
+  AdminBookingRoute: typeof AdminBookingRoute
+  AdminCheckInRoute: typeof AdminCheckInRoute
+  AdminCheckOutRoute: typeof AdminCheckOutRoute
+  AdminDepositRoute: typeof AdminDepositRoute
+  AdminKalenderRoute: typeof AdminKalenderRoute
+  AdminKamarRoute: typeof AdminKamarRoute
+  AdminKerusakanRoute: typeof AdminKerusakanRoute
+  AdminLaporanBookingRoute: typeof AdminLaporanBookingRoute
+  AdminLaporanKeuanganRoute: typeof AdminLaporanKeuanganRoute
+  AdminPembayaranRoute: typeof AdminPembayaranRoute
+  AdminPengaturanRoute: typeof AdminPengaturanRoute
+  AdminTamuRoute: typeof AdminTamuRoute
+  AdminTipeKamarRoute: typeof AdminTipeKamarRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminBiayaRoute: AdminBiayaRoute,
+  AdminBookingRoute: AdminBookingRoute,
+  AdminCheckInRoute: AdminCheckInRoute,
+  AdminCheckOutRoute: AdminCheckOutRoute,
+  AdminDepositRoute: AdminDepositRoute,
+  AdminKalenderRoute: AdminKalenderRoute,
+  AdminKamarRoute: AdminKamarRoute,
+  AdminKerusakanRoute: AdminKerusakanRoute,
+  AdminLaporanBookingRoute: AdminLaporanBookingRoute,
+  AdminLaporanKeuanganRoute: AdminLaporanKeuanganRoute,
+  AdminPembayaranRoute: AdminPembayaranRoute,
+  AdminPengaturanRoute: AdminPengaturanRoute,
+  AdminTamuRoute: AdminTamuRoute,
+  AdminTipeKamarRoute: AdminTipeKamarRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 
