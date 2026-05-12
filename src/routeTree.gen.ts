@@ -15,6 +15,7 @@ import { Route as BookingSayaRouteImport } from './routes/booking-saya'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as KamarIndexRouteImport } from './routes/kamar.index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as PembayaranIdRouteImport } from './routes/pembayaran.$id'
 import { Route as KamarIdRouteImport } from './routes/kamar.$id'
 import { Route as BookingIdRouteImport } from './routes/booking.$id'
@@ -50,6 +51,11 @@ const KamarIndexRoute = KamarIndexRouteImport.update({
   path: '/kamar/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
 const PembayaranIdRoute = PembayaranIdRouteImport.update({
   id: '/pembayaran/$id',
   path: '/pembayaran/$id',
@@ -73,7 +79,7 @@ const BookingBerhasilIdRoute = BookingBerhasilIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/booking-saya': typeof BookingSayaRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
@@ -81,11 +87,11 @@ export interface FileRoutesByFullPath {
   '/booking/$id': typeof BookingIdRoute
   '/kamar/$id': typeof KamarIdRoute
   '/pembayaran/$id': typeof PembayaranIdRoute
+  '/admin/': typeof AdminIndexRoute
   '/kamar/': typeof KamarIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
   '/booking-saya': typeof BookingSayaRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
@@ -93,12 +99,13 @@ export interface FileRoutesByTo {
   '/booking/$id': typeof BookingIdRoute
   '/kamar/$id': typeof KamarIdRoute
   '/pembayaran/$id': typeof PembayaranIdRoute
+  '/admin': typeof AdminIndexRoute
   '/kamar': typeof KamarIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/booking-saya': typeof BookingSayaRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
@@ -106,6 +113,7 @@ export interface FileRoutesById {
   '/booking/$id': typeof BookingIdRoute
   '/kamar/$id': typeof KamarIdRoute
   '/pembayaran/$id': typeof PembayaranIdRoute
+  '/admin/': typeof AdminIndexRoute
   '/kamar/': typeof KamarIndexRoute
 }
 export interface FileRouteTypes {
@@ -120,11 +128,11 @@ export interface FileRouteTypes {
     | '/booking/$id'
     | '/kamar/$id'
     | '/pembayaran/$id'
+    | '/admin/'
     | '/kamar/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/admin'
     | '/booking-saya'
     | '/login'
     | '/register'
@@ -132,6 +140,7 @@ export interface FileRouteTypes {
     | '/booking/$id'
     | '/kamar/$id'
     | '/pembayaran/$id'
+    | '/admin'
     | '/kamar'
   id:
     | '__root__'
@@ -144,12 +153,13 @@ export interface FileRouteTypes {
     | '/booking/$id'
     | '/kamar/$id'
     | '/pembayaran/$id'
+    | '/admin/'
     | '/kamar/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AdminRoute: typeof AdminRoute
+  AdminRoute: typeof AdminRouteWithChildren
   BookingSayaRoute: typeof BookingSayaRoute
   LoginRoute: typeof LoginRoute
   RegisterRoute: typeof RegisterRoute
@@ -204,6 +214,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KamarIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/pembayaran/$id': {
       id: '/pembayaran/$id'
       path: '/pembayaran/$id'
@@ -235,9 +252,19 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AdminRouteChildren {
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminRoute: AdminRoute,
+  AdminRoute: AdminRouteWithChildren,
   BookingSayaRoute: BookingSayaRoute,
   LoginRoute: LoginRoute,
   RegisterRoute: RegisterRoute,
