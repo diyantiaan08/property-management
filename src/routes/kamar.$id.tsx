@@ -30,7 +30,7 @@ function RoomDetail() {
           <div className="md:col-span-2 md:row-span-2 overflow-hidden rounded-2xl">
             <img src={room.gallery[0]} alt={room.name} className="h-full w-full object-cover" />
           </div>
-          {room.gallery.slice(1, 5).map((g, i) => (
+          {room.gallery.slice(1, 5).map((g: string, i: number) => (
             <div key={i} className="hidden md:block overflow-hidden rounded-2xl">
               <img src={g} alt="" loading="lazy" className="h-full w-full object-cover" />
             </div>

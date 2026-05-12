@@ -11,9 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as BookingSayaRouteImport } from './routes/booking-saya'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as KamarIndexRouteImport } from './routes/kamar.index'
+import { Route as PembayaranIdRouteImport } from './routes/pembayaran.$id'
 import { Route as KamarIdRouteImport } from './routes/kamar.$id'
+import { Route as BookingIdRouteImport } from './routes/booking.$id'
+import { Route as BookingBerhasilIdRouteImport } from './routes/booking-berhasil.$id'
 
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
@@ -23,6 +27,11 @@ const RegisterRoute = RegisterRouteImport.update({
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingSayaRoute = BookingSayaRouteImport.update({
+  id: '/booking-saya',
+  path: '/booking-saya',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -35,47 +44,106 @@ const KamarIndexRoute = KamarIndexRouteImport.update({
   path: '/kamar/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PembayaranIdRoute = PembayaranIdRouteImport.update({
+  id: '/pembayaran/$id',
+  path: '/pembayaran/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KamarIdRoute = KamarIdRouteImport.update({
   id: '/kamar/$id',
   path: '/kamar/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BookingIdRoute = BookingIdRouteImport.update({
+  id: '/booking/$id',
+  path: '/booking/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingBerhasilIdRoute = BookingBerhasilIdRouteImport.update({
+  id: '/booking-berhasil/$id',
+  path: '/booking-berhasil/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/booking-saya': typeof BookingSayaRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/booking-berhasil/$id': typeof BookingBerhasilIdRoute
+  '/booking/$id': typeof BookingIdRoute
   '/kamar/$id': typeof KamarIdRoute
+  '/pembayaran/$id': typeof PembayaranIdRoute
   '/kamar/': typeof KamarIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/booking-saya': typeof BookingSayaRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/booking-berhasil/$id': typeof BookingBerhasilIdRoute
+  '/booking/$id': typeof BookingIdRoute
   '/kamar/$id': typeof KamarIdRoute
+  '/pembayaran/$id': typeof PembayaranIdRoute
   '/kamar': typeof KamarIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/booking-saya': typeof BookingSayaRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/booking-berhasil/$id': typeof BookingBerhasilIdRoute
+  '/booking/$id': typeof BookingIdRoute
   '/kamar/$id': typeof KamarIdRoute
+  '/pembayaran/$id': typeof PembayaranIdRoute
   '/kamar/': typeof KamarIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/register' | '/kamar/$id' | '/kamar/'
+  fullPaths:
+    | '/'
+    | '/booking-saya'
+    | '/login'
+    | '/register'
+    | '/booking-berhasil/$id'
+    | '/booking/$id'
+    | '/kamar/$id'
+    | '/pembayaran/$id'
+    | '/kamar/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/register' | '/kamar/$id' | '/kamar'
-  id: '__root__' | '/' | '/login' | '/register' | '/kamar/$id' | '/kamar/'
+  to:
+    | '/'
+    | '/booking-saya'
+    | '/login'
+    | '/register'
+    | '/booking-berhasil/$id'
+    | '/booking/$id'
+    | '/kamar/$id'
+    | '/pembayaran/$id'
+    | '/kamar'
+  id:
+    | '__root__'
+    | '/'
+    | '/booking-saya'
+    | '/login'
+    | '/register'
+    | '/booking-berhasil/$id'
+    | '/booking/$id'
+    | '/kamar/$id'
+    | '/pembayaran/$id'
+    | '/kamar/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BookingSayaRoute: typeof BookingSayaRoute
   LoginRoute: typeof LoginRoute
   RegisterRoute: typeof RegisterRoute
+  BookingBerhasilIdRoute: typeof BookingBerhasilIdRoute
+  BookingIdRoute: typeof BookingIdRoute
   KamarIdRoute: typeof KamarIdRoute
+  PembayaranIdRoute: typeof PembayaranIdRoute
   KamarIndexRoute: typeof KamarIndexRoute
 }
 
@@ -95,6 +163,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/booking-saya': {
+      id: '/booking-saya'
+      path: '/booking-saya'
+      fullPath: '/booking-saya'
+      preLoaderRoute: typeof BookingSayaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -109,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KamarIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pembayaran/$id': {
+      id: '/pembayaran/$id'
+      path: '/pembayaran/$id'
+      fullPath: '/pembayaran/$id'
+      preLoaderRoute: typeof PembayaranIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/kamar/$id': {
       id: '/kamar/$id'
       path: '/kamar/$id'
@@ -116,14 +198,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KamarIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/booking/$id': {
+      id: '/booking/$id'
+      path: '/booking/$id'
+      fullPath: '/booking/$id'
+      preLoaderRoute: typeof BookingIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking-berhasil/$id': {
+      id: '/booking-berhasil/$id'
+      path: '/booking-berhasil/$id'
+      fullPath: '/booking-berhasil/$id'
+      preLoaderRoute: typeof BookingBerhasilIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BookingSayaRoute: BookingSayaRoute,
   LoginRoute: LoginRoute,
   RegisterRoute: RegisterRoute,
+  BookingBerhasilIdRoute: BookingBerhasilIdRoute,
+  BookingIdRoute: BookingIdRoute,
   KamarIdRoute: KamarIdRoute,
+  PembayaranIdRoute: PembayaranIdRoute,
   KamarIndexRoute: KamarIndexRoute,
 }
 export const routeTree = rootRouteImport
