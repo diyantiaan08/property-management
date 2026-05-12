@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as KamarIndexRouteImport } from './routes/kamar.index'
+import { Route as KamarIdRouteImport } from './routes/kamar.$id'
 
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
@@ -28,35 +30,53 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KamarIndexRoute = KamarIndexRouteImport.update({
+  id: '/kamar/',
+  path: '/kamar/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KamarIdRoute = KamarIdRouteImport.update({
+  id: '/kamar/$id',
+  path: '/kamar/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/kamar/$id': typeof KamarIdRoute
+  '/kamar/': typeof KamarIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/kamar/$id': typeof KamarIdRoute
+  '/kamar': typeof KamarIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/kamar/$id': typeof KamarIdRoute
+  '/kamar/': typeof KamarIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/register'
+  fullPaths: '/' | '/login' | '/register' | '/kamar/$id' | '/kamar/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/register'
-  id: '__root__' | '/' | '/login' | '/register'
+  to: '/' | '/login' | '/register' | '/kamar/$id' | '/kamar'
+  id: '__root__' | '/' | '/login' | '/register' | '/kamar/$id' | '/kamar/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LoginRoute: typeof LoginRoute
   RegisterRoute: typeof RegisterRoute
+  KamarIdRoute: typeof KamarIdRoute
+  KamarIndexRoute: typeof KamarIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +102,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kamar/': {
+      id: '/kamar/'
+      path: '/kamar'
+      fullPath: '/kamar/'
+      preLoaderRoute: typeof KamarIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kamar/$id': {
+      id: '/kamar/$id'
+      path: '/kamar/$id'
+      fullPath: '/kamar/$id'
+      preLoaderRoute: typeof KamarIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +123,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LoginRoute: LoginRoute,
   RegisterRoute: RegisterRoute,
+  KamarIdRoute: KamarIdRoute,
+  KamarIndexRoute: KamarIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
