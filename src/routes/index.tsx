@@ -21,31 +21,31 @@ function Index() {
 
       {/* Hero */}
       <section className="relative">
-        <div className="relative h-[78vh] min-h-[560px] w-full overflow-hidden">
+        <div className="relative h-[68vh] min-h-[460px] w-full overflow-hidden md:h-[78vh] md:min-h-[560px]">
           <img src={heroImg} alt="Villa mewah dengan kolam renang menghadap laut" className="absolute inset-0 h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-primary/20 to-primary/80" />
-          <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-end px-4 pb-32 md:pb-40">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-medium text-white backdrop-blur">
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/25 to-primary/85" />
+          <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-end px-4 pb-40 md:pb-40">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-medium text-white backdrop-blur md:text-xs">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" /> 1.200+ properti pilihan di Indonesia
             </span>
-            <h1 className="mt-4 max-w-2xl text-4xl font-bold leading-tight text-white md:text-6xl text-balance">
+            <h1 className="mt-3 max-w-2xl text-3xl font-bold leading-tight text-white md:mt-4 md:text-6xl text-balance">
               Temukan tempat menginap yang sempurna.
             </h1>
-            <p className="mt-3 max-w-xl text-base text-white/85 md:text-lg">
+            <p className="mt-2 max-w-xl text-sm text-white/85 md:mt-3 md:text-lg">
               Villa pribadi, hotel butik, dan homestay nyaman — pesan dalam hitungan detik.
             </p>
           </div>
         </div>
 
         {/* Search card */}
-        <div className="relative z-20 mx-auto -mt-20 max-w-5xl px-4">
+        <div className="relative z-20 mx-auto -mt-28 max-w-5xl px-4 md:-mt-20">
           <div className="rounded-3xl bg-card p-3 shadow-[var(--shadow-elevated)] md:p-2">
-            <div className="grid grid-cols-1 gap-2 md:grid-cols-[1.4fr_1fr_1fr_1fr_auto]">
-              <Field label="Lokasi" placeholder="Bali, Jakarta, Bandung..." icon={<MapPin className="h-4 w-4" />} />
+            <div className="grid grid-cols-2 gap-2 md:grid-cols-[1.4fr_1fr_1fr_1fr_auto]">
+              <Field className="col-span-2 md:col-span-1" label="Lokasi" placeholder="Bali, Jakarta..." icon={<MapPin className="h-4 w-4" />} />
               <Field label="Check-in" placeholder="12 Mei 2026" />
               <Field label="Check-out" placeholder="15 Mei 2026" />
-              <Field label="Tamu" placeholder="2 dewasa" />
-              <Link to="/kamar" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-6 py-4 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-soft)] hover:opacity-95">
+              <Field className="col-span-2 md:col-span-1" label="Tamu" placeholder="2 dewasa" />
+              <Link to="/kamar" className="col-span-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-6 py-4 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-soft)] hover:opacity-95 md:col-span-1">
                 <Search className="h-4 w-4" /> Cari Kamar
               </Link>
             </div>
@@ -157,9 +157,9 @@ function Index() {
   );
 }
 
-function Field({ label, placeholder, icon }: { label: string; placeholder: string; icon?: React.ReactNode }) {
+function Field({ label, placeholder, icon, className = "" }: { label: string; placeholder: string; icon?: React.ReactNode; className?: string }) {
   return (
-    <div className="rounded-2xl px-4 py-3 hover:bg-secondary/60 transition">
+    <div className={`rounded-2xl px-4 py-3 hover:bg-secondary/60 transition ${className}`}>
       <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{label}</div>
       <div className="mt-1 flex items-center gap-2 text-sm font-medium text-foreground">
         {icon}{placeholder}
