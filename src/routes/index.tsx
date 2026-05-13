@@ -38,13 +38,12 @@ function Index() {
         </div>
 
         {/* Search card */}
-        <div className="relative z-20 mx-auto -mt-28 max-w-5xl px-4 md:-mt-20">
+        <div className="relative z-20 mx-auto -mt-32 max-w-4xl px-4 md:-mt-20">
           <div className="rounded-3xl bg-card p-3 shadow-[var(--shadow-elevated)] md:p-2">
-            <div className="grid grid-cols-2 gap-2 md:grid-cols-[1.4fr_1fr_1fr_1fr_auto]">
-              <Field className="col-span-2 md:col-span-1" label="Lokasi" placeholder="Bali, Jakarta..." icon={<MapPin className="h-4 w-4" />} />
-              <Field label="Check-in" placeholder="12 Mei 2026" />
-              <Field label="Check-out" placeholder="15 Mei 2026" />
-              <Field className="col-span-2 md:col-span-1" label="Tamu" placeholder="2 dewasa" />
+            <div className="grid grid-cols-2 gap-2 md:grid-cols-[1fr_1fr_1fr_auto]">
+              <Field label="Check-in" value="12 Mei 2026" icon={<Calendar className="h-4 w-4" />} />
+              <Field label="Check-out" value="15 Mei 2026" icon={<Calendar className="h-4 w-4" />} />
+              <Field className="col-span-2 md:col-span-1" label="Tamu" value="2 dewasa · 1 kamar" icon={<Users className="h-4 w-4" />} />
               <Link to="/kamar" className="col-span-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-6 py-4 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-soft)] hover:opacity-95 md:col-span-1">
                 <Search className="h-4 w-4" /> Cari Kamar
               </Link>
