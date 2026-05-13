@@ -22,13 +22,13 @@ function Payment() {
   const [method, setMethod] = useState("transfer");
 
   return (
-    <div className="min-h-screen bg-background pb-12">
+    <div className="min-h-screen bg-background pb-28 lg:pb-12">
       <TopBar />
-      <div className="mx-auto max-w-5xl px-4 py-6">
+      <div className="mx-auto max-w-5xl px-4 py-5 md:py-6">
         <Link to="/booking/$id" params={{ id: room.id }} className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
           <ArrowLeft className="h-4 w-4" /> Kembali
         </Link>
-        <h1 className="mt-4 text-2xl font-bold md:text-3xl">Pembayaran</h1>
+        <h1 className="mt-3 text-xl font-bold md:mt-4 md:text-3xl">Pembayaran</h1>
         <p className="mt-1 text-sm text-muted-foreground">Invoice #INV-2026051200{room.id.slice(0,2).toUpperCase()}</p>
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_360px]">
@@ -105,11 +105,24 @@ function Payment() {
                   <span className="text-xl font-bold">{formatRupiah(total)}</span>
                 </div>
               </div>
-              <Link to="/booking-berhasil/$id" params={{ id: room.id }} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent py-3.5 text-sm font-semibold text-accent-foreground hover:opacity-90">
+              <Link to="/booking-berhasil/$id" params={{ id: room.id }} className="mt-5 hidden lg:inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent py-3.5 text-sm font-semibold text-accent-foreground hover:opacity-90">
                 <Check className="h-4 w-4" /> Konfirmasi Pembayaran
               </Link>
             </div>
           </aside>
+        </div>
+      </div>
+
+      {/* Sticky mobile CTA */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-card px-4 py-3 lg:hidden">
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <div className="text-[11px] text-muted-foreground">Total</div>
+            <div className="text-base font-bold">{formatRupiah(total)}</div>
+          </div>
+          <Link to="/booking-berhasil/$id" params={{ id: room.id }} className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-accent py-3.5 text-sm font-semibold text-accent-foreground">
+            <Check className="h-4 w-4" /> Konfirmasi
+          </Link>
         </div>
       </div>
     </div>

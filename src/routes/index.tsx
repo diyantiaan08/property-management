@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Search, MapPin, Star, Wifi, Coffee, Waves, Utensils, Dumbbell, Car, ShieldCheck, ArrowRight } from "lucide-react";
+import { Search, Calendar, Users, Star, Wifi, Coffee, Waves, Utensils, Dumbbell, Car, ShieldCheck, ArrowRight } from "lucide-react";
 import { TopBar, MobileNav } from "@/components/customer/Nav";
 import { rooms, formatRupiah } from "@/lib/data";
 import heroImg from "@/assets/hero-villa.jpg";
@@ -26,25 +26,24 @@ function Index() {
           <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/25 to-primary/85" />
           <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-end px-4 pb-40 md:pb-40">
             <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-medium text-white backdrop-blur md:text-xs">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" /> 1.200+ properti pilihan di Indonesia
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" /> Stayly Resort & Villa · Bali
             </span>
             <h1 className="mt-3 max-w-2xl text-3xl font-bold leading-tight text-white md:mt-4 md:text-6xl text-balance">
-              Temukan tempat menginap yang sempurna.
+              Pengalaman menginap yang tak terlupakan.
             </h1>
             <p className="mt-2 max-w-xl text-sm text-white/85 md:mt-3 md:text-lg">
-              Villa pribadi, hotel butik, dan homestay nyaman — pesan dalam hitungan detik.
+              Pilih tanggal, pilih kamar, dan nikmati liburan Anda — konfirmasi instan.
             </p>
           </div>
         </div>
 
         {/* Search card */}
-        <div className="relative z-20 mx-auto -mt-28 max-w-5xl px-4 md:-mt-20">
+        <div className="relative z-20 mx-auto -mt-32 max-w-4xl px-4 md:-mt-20">
           <div className="rounded-3xl bg-card p-3 shadow-[var(--shadow-elevated)] md:p-2">
-            <div className="grid grid-cols-2 gap-2 md:grid-cols-[1.4fr_1fr_1fr_1fr_auto]">
-              <Field className="col-span-2 md:col-span-1" label="Lokasi" placeholder="Bali, Jakarta..." icon={<MapPin className="h-4 w-4" />} />
-              <Field label="Check-in" placeholder="12 Mei 2026" />
-              <Field label="Check-out" placeholder="15 Mei 2026" />
-              <Field className="col-span-2 md:col-span-1" label="Tamu" placeholder="2 dewasa" />
+            <div className="grid grid-cols-2 gap-2 md:grid-cols-[1fr_1fr_1fr_auto]">
+              <Field label="Check-in" value="12 Mei 2026" icon={<Calendar className="h-4 w-4" />} />
+              <Field label="Check-out" value="15 Mei 2026" icon={<Calendar className="h-4 w-4" />} />
+              <Field className="col-span-2 md:col-span-1" label="Tamu" value="2 dewasa · 1 kamar" icon={<Users className="h-4 w-4" />} />
               <Link to="/kamar" className="col-span-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-6 py-4 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-soft)] hover:opacity-95 md:col-span-1">
                 <Search className="h-4 w-4" /> Cari Kamar
               </Link>
@@ -157,12 +156,12 @@ function Index() {
   );
 }
 
-function Field({ label, placeholder, icon, className = "" }: { label: string; placeholder: string; icon?: React.ReactNode; className?: string }) {
+function Field({ label, value, icon, className = "" }: { label: string; value: string; icon?: React.ReactNode; className?: string }) {
   return (
     <div className={`rounded-2xl px-4 py-3 hover:bg-secondary/60 transition ${className}`}>
       <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{label}</div>
       <div className="mt-1 flex items-center gap-2 text-sm font-medium text-foreground">
-        {icon}{placeholder}
+        {icon}{value}
       </div>
     </div>
   );
