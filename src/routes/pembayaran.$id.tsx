@@ -22,13 +22,13 @@ function Payment() {
   const [method, setMethod] = useState("transfer");
 
   return (
-    <div className="min-h-screen bg-background pb-12">
+    <div className="min-h-screen bg-background pb-28 lg:pb-12">
       <TopBar />
-      <div className="mx-auto max-w-5xl px-4 py-6">
+      <div className="mx-auto max-w-5xl px-4 py-5 md:py-6">
         <Link to="/booking/$id" params={{ id: room.id }} className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
           <ArrowLeft className="h-4 w-4" /> Kembali
         </Link>
-        <h1 className="mt-4 text-2xl font-bold md:text-3xl">Pembayaran</h1>
+        <h1 className="mt-3 text-xl font-bold md:mt-4 md:text-3xl">Pembayaran</h1>
         <p className="mt-1 text-sm text-muted-foreground">Invoice #INV-2026051200{room.id.slice(0,2).toUpperCase()}</p>
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_360px]">
