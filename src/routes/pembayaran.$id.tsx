@@ -112,6 +112,19 @@ function Payment() {
           </aside>
         </div>
       </div>
+
+      {/* Sticky mobile CTA */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-card px-4 py-3 lg:hidden">
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <div className="text-[11px] text-muted-foreground">Total</div>
+            <div className="text-base font-bold">{formatRupiah(total)}</div>
+          </div>
+          <Link to="/booking-berhasil/$id" params={{ id: room.id }} className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-accent py-3.5 text-sm font-semibold text-accent-foreground">
+            <Check className="h-4 w-4" /> Konfirmasi
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
