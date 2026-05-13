@@ -105,7 +105,7 @@ function Payment() {
                   <span className="text-xl font-bold">{formatRupiah(total)}</span>
                 </div>
               </div>
-              <Link to="/booking-berhasil/$id" params={{ id: room.id }} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent py-3.5 text-sm font-semibold text-accent-foreground hover:opacity-90">
+              <Link to="/booking-berhasil/$id" params={{ id: room.id }} className="mt-5 hidden lg:inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent py-3.5 text-sm font-semibold text-accent-foreground hover:opacity-90">
                 <Check className="h-4 w-4" /> Konfirmasi Pembayaran
               </Link>
             </div>
