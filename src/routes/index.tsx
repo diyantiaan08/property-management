@@ -157,9 +157,9 @@ function Index() {
   );
 }
 
-function Field({ label, placeholder, icon }: { label: string; placeholder: string; icon?: React.ReactNode }) {
+function Field({ label, placeholder, icon, className = "" }: { label: string; placeholder: string; icon?: React.ReactNode; className?: string }) {
   return (
-    <div className="rounded-2xl px-4 py-3 hover:bg-secondary/60 transition">
+    <div className={`rounded-2xl px-4 py-3 hover:bg-secondary/60 transition ${className}`}>
       <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{label}</div>
       <div className="mt-1 flex items-center gap-2 text-sm font-medium text-foreground">
         {icon}{placeholder}
