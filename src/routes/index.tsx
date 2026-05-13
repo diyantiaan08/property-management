@@ -26,13 +26,13 @@ function Index() {
           <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/25 to-primary/85" />
           <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-end px-4 pb-40 md:pb-40">
             <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-medium text-white backdrop-blur md:text-xs">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" /> 1.200+ properti pilihan di Indonesia
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" /> Stayly Resort & Villa · Bali
             </span>
             <h1 className="mt-3 max-w-2xl text-3xl font-bold leading-tight text-white md:mt-4 md:text-6xl text-balance">
-              Temukan tempat menginap yang sempurna.
+              Pengalaman menginap yang tak terlupakan.
             </h1>
             <p className="mt-2 max-w-xl text-sm text-white/85 md:mt-3 md:text-lg">
-              Villa pribadi, hotel butik, dan homestay nyaman — pesan dalam hitungan detik.
+              Pilih tanggal, pilih kamar, dan nikmati liburan Anda — konfirmasi instan.
             </p>
           </div>
         </div>
