@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Search, MapPin, Star, Wifi, Coffee, Waves, Utensils, Dumbbell, Car, ShieldCheck, ArrowRight } from "lucide-react";
+import { Search, Calendar, Users, Star, Wifi, Coffee, Waves, Utensils, Dumbbell, Car, ShieldCheck, ArrowRight } from "lucide-react";
 import { TopBar, MobileNav } from "@/components/customer/Nav";
 import { rooms, formatRupiah } from "@/lib/data";
 import heroImg from "@/assets/hero-villa.jpg";
