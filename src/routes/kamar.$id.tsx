@@ -41,10 +41,10 @@ function RoomDetail() {
           <div>
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
-                <h1 className="text-3xl font-bold">{room.name}</h1>
-                <p className="mt-1 text-sm text-muted-foreground">{room.bed} · Lantai 5–8 · Stayly Resort & Villa</p>
+                <h1 className="text-2xl font-bold md:text-3xl">{room.name}</h1>
+                <p className="mt-1 text-xs text-muted-foreground md:text-sm">{room.bed} · Lantai 5–8 · Stayly Resort & Villa</p>
               </div>
-              <div className="flex items-center gap-1.5 rounded-xl bg-accent/10 px-3 py-2 text-sm font-semibold text-accent">
+              <div className="flex items-center gap-1.5 rounded-xl bg-accent/10 px-3 py-1.5 text-xs font-semibold text-accent md:py-2 md:text-sm">
                 <Star className="h-4 w-4 fill-current" /> 4.9 · 248 ulasan
               </div>
             </div>
